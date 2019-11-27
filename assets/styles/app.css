@@ -154,6 +154,17 @@ textarea:focus {
     outline: none;
     background: #fff1c4;
 }
+#task-list {
+    display: flex;
+    justify-content: center;
+}
+.newTask {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    background-color: lightblue;
+    padding: 1em;
+}
 
 @keyframes fade-slide-in {
     from {

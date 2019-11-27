@@ -30,7 +30,7 @@ const clearInputs = () => {
   taskPriority.value = "";
 };
 
-const addMovie = () => {
+const addTask = () => {
   const tTitle = taskTitle.value;
   const tDescription = taskDescription.value;
   const tPriority = taskPriority.value;
@@ -43,6 +43,7 @@ const addMovie = () => {
     tPriority > 3
   ) {
     alert("Please enter valid data");
+    return;
   }
 
   const newTask = {
@@ -55,11 +56,36 @@ const addMovie = () => {
   tasks.push(newTask);
   clearInputs();
   closeTaskModal();
+  renderTaskToUi(
+    newTask.id,
+    newTask.title,
+    newTask.description,
+    newTask.priority,
+  );
   console.log(tasks);
+};
+
+const renderTaskToUi = (id, title, description, priority) => {
+  const newTaskElement = document.createElement("div");
+  newTaskElement.className = "newTask";
+  newTaskElement.innerHTML = `
+    <div>
+        <h1>${title}</h1>
+    </div>
+    <div>
+        <p>${description} </p>
+    </div>
+    <div>
+        <p>${priority} </p>
+    </div>
+  `;
+  console.log(newTaskElement);
+  const taskRoot = document.getElementById("task-list");
+  taskRoot.append(newTaskElement);
 };
 
 // EVENT LISTENERS
 newTaksBtn.addEventListener("click", openTaskModal);
 backdrop.addEventListener("click", closeTaskModal);
 cancelMovieAdd.addEventListener("click", closeTaskModal);
-confirmMovieAdd.addEventListener("click", addMovie);
+confirmMovieAdd.addEventListener("click", addTask);
