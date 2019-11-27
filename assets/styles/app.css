@@ -69,6 +69,7 @@ main {
 }
 
 .card {
+    background-color: white;
     width: 50%;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
@@ -86,11 +87,11 @@ main {
     z-index: 100;
     background-color: white;
     width: 80%;
-    top: 30vh;
+    top: 20vh;
     left: 10%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
-    /* display: none; */
+    display: none;
 }
 
 .modal.visible {
@@ -102,6 +103,32 @@ main {
     display: flex;
     flex-direction: column;
     padding: 1em;
+}
+
+.modal__actions {
+    padding-right: 2em;
+    padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#cancelMovieAdd {
+    all: unset;
+    color: blue;
+    text-decoration: underline;
+    letter-spacing: 1.2px;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+#confirmMovieAdd {
+    background-color: darkorange;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 label {
