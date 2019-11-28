@@ -7,6 +7,7 @@ const taskTitle = document.querySelector(".modal__content #title");
 const taskDescription = document.querySelector(".modal__content #description");
 const taskPriority = document.querySelector(".modal__content #priority");
 const tasks = [];
+const main = document.querySelector("main");
 
 // FUNCTIONS
 const openTaskModal = () => {
@@ -28,6 +29,14 @@ const clearInputs = () => {
   taskTitle.value = "";
   taskDescription.value = "";
   taskPriority.value = "";
+};
+
+const updateUI = () => {
+  if (tasks.length === 0) {
+    main.style.display = "block";
+  } else {
+    main.style.display = "none";
+  }
 };
 
 const addTask = () => {
@@ -69,10 +78,10 @@ const renderTaskToUi = (id, title, description, priority) => {
   const newTaskElement = document.createElement("div");
   newTaskElement.className = "newTask";
   newTaskElement.innerHTML = `
-    <div>
+    <div class="newTask-top">
         <h1>${title}</h1>
     </div>
-    <div>
+    <div class="newTask-main">
         <p>${description} </p>
     </div>
     <div>
@@ -82,6 +91,7 @@ const renderTaskToUi = (id, title, description, priority) => {
   console.log(newTaskElement);
   const taskRoot = document.getElementById("task-list");
   taskRoot.append(newTaskElement);
+  updateUI();
 };
 
 // EVENT LISTENERS

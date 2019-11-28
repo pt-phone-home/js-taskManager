@@ -157,15 +157,31 @@ textarea:focus {
 #task-list {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .newTask {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
-    border: 1px solid #000;
-    background-color: lightblue;
+    border: 1px solid blue;
+    background-color: white;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
     padding: 1em;
+    width: 80%;
+    border-radius: 10px;
 }
 
+.newTask-top {
+    display: flex;
+    /* border-bottom: 1px solid blue; */
+}
+
+.newTask-main {
+    display: flex;
+    background-color: whitesmoke;
+    padding: 1em;
+}
 @keyframes fade-slide-in {
     from {
         transform: translateY(-5rem);
